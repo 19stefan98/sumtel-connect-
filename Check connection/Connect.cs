@@ -18,7 +18,7 @@ namespace Check_connection
         {
             TimeSpan timeout = new TimeSpan(00, 00, 60);
             driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl("http://itech:itech@voronezh.sumtel.itech-test.ru");
+            driver.Navigate().GoToUrl("http://itech:itech@saint-petersburg.sumtel.itech-test.ru/");
 
             var street = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id=\"check - connection - block\"]/form/div/div[3]/div/div[1]")));
                 street.SendKeys("Пловдивская");
