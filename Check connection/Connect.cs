@@ -16,7 +16,7 @@ namespace Check_connection
 
         public void Action()
         {
-            TimeSpan timeout = new TimeSpan(00, 00, 10);
+            TimeSpan timeout = new TimeSpan(00, 00, 60);
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl("http://itech:itech@voronezh.sumtel.itech-test.ru");
 
