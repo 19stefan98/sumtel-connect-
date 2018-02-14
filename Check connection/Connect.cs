@@ -16,17 +16,16 @@ namespace Check_connection
 
         public void Action()
         {
-            TimeSpan timeout = new TimeSpan(00, 00, 60);
+            TimeSpan timeout = new TimeSpan(00, 00, 10);
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl("http://itech:itech@saint-petersburg.sumtel.itech-test.ru/");
 
-            var street = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id=\"check - connection - block\"]/form/div/div[3]/div/div[1]/label/input")));
-            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", street);
-            street.SendKeys("Пловдивская");
-            var home = driver.FindElement(By.Name("home_corpus"));
-                home.SendKeys("5");
-                home.Submit(); 
-            Result = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.ClassName("sa-icon sa-custom"))).Text;
+            var street = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id=\"check-connection-block\"]/form/div/div[4]/div/div[1]/label/input")));
+                street.SendKeys("Пловдивская");
+            var home = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id=\"check-connection-block\"]/form/div/div[4]/div/div[2]/label/input")));
+                home.SendKeys("1/10");
+                home.Submit();
+            Result = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id=\"body\"]/div[5]/div[5]"))).Text;
         }
     }
 }

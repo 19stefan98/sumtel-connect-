@@ -36,12 +36,12 @@ namespace Check_connection
         [Test]
         public void Connection()
         {
-            var actual = "Ваш дом подключен";
+            var actual = "Ваш дом подключен!";
 
             Connection avto = new Connection(driver);
             avto.Action();
 
-            Assert.AreNotEqual(avto.Result, actual);
+            Assert.AreEqual(avto.Result, actual);
         }
     }
 }
